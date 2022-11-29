@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <algorithm>
 class Encrypt {
 	protected :
 		std::string _plain;

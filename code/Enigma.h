@@ -4,6 +4,7 @@ class Enigma : public Encrypt {
 		Enigma(std::string _cle,std::string messagedecr);
 		void encode() override;
 		void decode() override;
+		std::string makecle()
 	private:
 		std::string _cle;
 };
