@@ -1,5 +1,5 @@
 #include "Encrypt.h" 
-Encrypt::Encrypt(std::string messagedecr): _cipher(messagedecr){}
+Encrypt::Encrypt(std::string messagedecr,std::string messagecrypte): _cipher(messagecrypte),_plain(messagedecr){}
 
 std::string Encrypt::plain(){
 	return _plain;
