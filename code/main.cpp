@@ -6,6 +6,7 @@ int main(){
         //Tout est OK, on peut utiliser le fichier
         Enigma code("BONJOURCOMMENTALLEZVOUS","");
         code.makecle();
+        code.makecle();
         code.encode();
         monFlux << "message crypté " << code.cipher() << std::endl;
         code.decode();

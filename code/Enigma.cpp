@@ -4,11 +4,12 @@ Enigma::Enigma(std::string messagedecr,std::string messagecr) : Encrypt(messaged
 void Enigma::encode(){
 	std::string Alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
 	std::string encodage = _plain ;
+	std::string cle = _listecle.at(0);
 	int tailleMessage= _plain.size();
 	for (int i = 0 ; i < tailleMessage ; i++ ){
 		for (int j = 0 ; j < 26 ; j++){
 				if (_plain.at(i)==Alphabet.at(j)){
-					encodage.at(i)=_cle.at(j) ;
+					encodage.at(i)=cle.at(j) ;
 				}
 
 		}
@@ -18,10 +19,12 @@ void Enigma::encode(){
 }
 void Enigma::decode(){
 	std::string messageDecode = "";
-	std::vector<std::string> listeRotor = {_cle};
+	std::vector<std::string> listeRotor = _listecle;
+	reverse(listeRotor.begin(),listeRotor.end());
 	for(char lettredansmot : cipher()){
 		char lettre;
-		for(std::string rotor : listeRotor){
+		for(std::string rotor : listeRotor){ //faire pour 2 rotor ( 2 clés)
+			//std::cout << "rotor = " << rotor << std::endl;
 			int pos = rotor.find(toupper(lettredansmot));
 			lettre = _alphabet.at(pos);
 		}
@@ -32,8 +35,11 @@ void Enigma::decode(){
 }
 std::string Enigma::makecle(){
 	std::string Alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	std::string cle;
 	srand(time(NULL));
 	random_shuffle(Alphabet.begin(), Alphabet.end());
-	_cle=Alphabet ;
-	return _cle;
+	cle=Alphabet ;
+	_listecle.push_back(cle);
+	sleep(1);
+	return cle;
 }

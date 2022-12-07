@@ -6,6 +6,6 @@ class Enigma : public Encrypt {
 		void decode() override;
 		std::string makecle();
 	private:
-		std::string _cle;
+		std::vector<std::string> _listecle;
 		std::string _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 };

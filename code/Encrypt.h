@@ -4,6 +4,7 @@
 #include <ctime>
 #include <vector>
 #include <fstream>
+#include <unistd.h>
 class Encrypt {
 	protected :
 		std::string _plain;

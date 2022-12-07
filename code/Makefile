@@ -10,7 +10,7 @@ LDFLAGS    =
 SRCS       = Encrypt.cpp main.cpp Enigma.cpp
 OBJS       = $(SRCS:.cpp=.o)
 # Replace your_app with the name you want to give to your executable file
-TARGET     = enigma 
+TARGET     = enigma.out
 DEPS	   = $(OBJS:.o=.d)
 
 all: $(TARGET)

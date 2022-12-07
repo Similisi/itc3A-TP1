@@ -2,3 +2,4 @@
 *.d
 *-test
 *.txt
+*.out
