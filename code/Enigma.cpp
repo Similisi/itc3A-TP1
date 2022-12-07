@@ -18,8 +18,18 @@ void Enigma::encode(){
 
 }
 void Enigma::decode(){
-	int tailleMessage = cipher().size();
-	std::cout << " taille = " << tailleMessage << std::endl;
+	std::string messageDecode = "";
+	std::vector<std::string> listeRotor = {_cle};
+	for(char lettredansmot : cipher()){
+		char lettre;
+		for(std::string rotor : listeRotor){
+			int pos = rotor.find(toupper(lettredansmot));
+			lettre = _alphabet.at(pos);
+		}
+		messageDecode += lettre;
+	}
+	_plain = messageDecode;
+	std::cout << "resultat = " << messageDecode << std::endl;
 }
 std::string Enigma::makecle(){
 	std::string Alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
