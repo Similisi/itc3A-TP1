@@ -1,5 +1,5 @@
 #include "Enigma.h" 
-Enigma::Enigma(std::string cle,std::string messagedecr) : Encrypt(messagedecr), _cle(cle)
+Enigma::Enigma(std::string cle,std::string messagedecr,std::string messagecr) : Encrypt(messagedecr,messagecr), _cle(cle)
 {}
 void Enigma::encode(){
 	std::string Alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
