@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <vector>
 class Encrypt {
 	protected :
 		std::string _plain;

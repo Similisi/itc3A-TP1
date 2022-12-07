@@ -1,9 +1,8 @@
 #include "Enigma.h" 
-Enigma::Enigma(std::string cle,std::string messagedecr,std::string messagecr) : Encrypt(messagedecr,messagecr), _cle(cle)
+Enigma::Enigma(std::string messagedecr,std::string messagecr) : Encrypt(messagedecr,messagecr)
 {}
 void Enigma::encode(){
 	std::string Alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
-	std::string _cle = "AZERTYUIOPQSDFGHJKLMWXCVBN" ;
 	std::string encodage = _plain ;
 	int tailleMessage= _plain.size();
 	for (int i = 0 ; i < tailleMessage ; i++ ){
