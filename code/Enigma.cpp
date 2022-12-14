@@ -4,16 +4,25 @@ Enigma::Enigma(std::string messagedecr,std::string messagecr) : Encrypt(messaged
 void Enigma::encode(){
 	std::string Alphabet= "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ;
 	std::string encodage = _plain ;
-	std::string cle = _listecle.at(0);
+	std::string cle1 = _listecle.at(0);
+	std::string cle2 = _listecle.at(1);
 	int tailleMessage= _plain.size();
 	for (int i = 0 ; i < tailleMessage ; i++ ){
-		for (int j = 0 ; j < 26 ; j++){
-				if (_plain.at(i)==Alphabet.at(j)){
-					encodage.at(i)=cle.at(j) ;
+		for (int j = 0 ; j < 26 ; j++){				
+			if (_plain.at(i)==Alphabet.at(j)){
+					encodage.at(i)=cle1.at(j) ;
 				}
+			}	
+		}
+		_plain=encodage ;
+		for (int i =0 ; i < tailleMessage ; i++){
+			for (int j = 0 ; j < 26 ; j++){
+					if (_plain.at(i)==cle1.at(j)){
+						encodage.at(i)=cle2.at(j) ;
+					}
+				}	
 
 		}
-	}
 	_cipher=encodage ;
 
 }

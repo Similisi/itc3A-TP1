@@ -9,8 +9,8 @@ int main(){
         code.makecle();
         code.encode();
         monFlux << "message crypté " << code.cipher() << std::endl;
-        code.decode();
-        monFlux << "message décrypté " << code.plain() << std::endl;
+        //code.decode();
+        //monFlux << "message décrypté " << code.plain() << std::endl;
     }
     else
     {
