@@ -6,9 +6,6 @@
 #include <fstream>
 #include <unistd.h>
 class Encrypt {
-	protected :
-		std::string _plain;
-		std::string _cipher;
 	public:
 		Encrypt(std::string message,std::string messagecrypte);
 		virtual void encode() = 0;
@@ -17,4 +14,7 @@ class Encrypt {
 		std::string cipher();
 		void setplain(std::string text);
 		void setcipher(std::string text);
+	protected :
+		std::string _plain;
+		std::string _cipher;
 };

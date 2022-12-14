@@ -12,7 +12,7 @@ int main(){
     std::ofstream monFlux("resultat.txt");
     if(monFlux)  //On teste si tout est OK
     {
-        int choix,nbcles =0;
+        int choix =0;
         std::cout << "Que voulez vous faire ? (1 : encoder / 2 : decoder )" << std::endl;
         std::cin >> choix;
         Enigma code("","");
@@ -20,10 +20,7 @@ int main(){
         {
             case 1:
                 code.setplain(text);
-
-                std::cout << "Nombre de clé a donner ?" << std::endl;       
-                std::cin >> nbcles;
-                for(int index = 0 ; index < nbcles ; index++){
+                for(int index = 0 ; index < 2 ; index++){
                     code.makecle();
                 }
                 code.encode();
@@ -34,9 +31,7 @@ int main(){
                 break;
             case 2:
                 code.setcipher(text);
-                std::cout << "Nombre de clé a donner ?" << std::endl; 
-                std::cin >> nbcles;
-                for(int index = 0 ; index < nbcles ; index++){
+                for(int index = 0 ; index < 2 ; index++){
                     std::string cl;
                     std::cout << "clé = ";
                     std::cin >> cl;
