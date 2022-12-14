@@ -15,4 +15,6 @@ class Encrypt {
 		virtual void decode() = 0;
 		std::string plain();
 		std::string cipher();
+		void setplain(std::string text);
+		void setcipher(std::string text);
 };

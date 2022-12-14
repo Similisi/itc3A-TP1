@@ -8,12 +8,13 @@ void Enigma::encode(){
 	int tailleMessage= _plain.size();
 	for (int i = 0 ; i < tailleMessage ; i++ ){
 		for (int j = 0 ; j < 26 ; j++){
-				if (_plain.at(i)==Alphabet.at(j)){
+				if (toupper(_plain.at(i))==Alphabet.at(j)){
 					encodage.at(i)=cle.at(j) ;
 				}
 
 		}
 	}
+	std::cout << "encode = " << encodage << std::endl;
 	_cipher=encodage ;
 
 }
@@ -24,10 +25,11 @@ void Enigma::decode(){
 	for(char lettredansmot : cipher()){
 		char lettre;
 		for(std::string rotor : listeRotor){ //faire pour 2 rotor ( 2 clés)
-			//std::cout << "rotor = " << rotor << std::endl;
+			std::cout << "rotor = " << rotor << std::endl;
 			int pos = rotor.find(toupper(lettredansmot));
 			lettre = _alphabet.at(pos);
 		}
+		std::cout << "message = " << messageDecode << std::endl;
 		messageDecode += lettre;
 	}
 	_plain = messageDecode;
@@ -42,4 +44,12 @@ std::string Enigma::makecle(){
 	_listecle.push_back(cle);
 	sleep(1);
 	return cle;
+}
+
+void Enigma::AjoutCle(std::string cle){
+	_listecle.push_back(cle);
+}
+
+std::vector<std::string> Enigma::GetListeCle(){
+	return _listecle;
 }

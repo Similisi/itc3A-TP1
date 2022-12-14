@@ -7,3 +7,11 @@ std::string Encrypt::plain(){
 std::string Encrypt::cipher() {
 	return _cipher;
 }
+
+
+void Encrypt::setplain(std::string text){
+	_plain = text;
+}
+void Encrypt::setcipher(std::string text){
+	_cipher = text;
+}
