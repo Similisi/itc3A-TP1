@@ -2,15 +2,22 @@
 int main(){
     
     std::ifstream monFlux2("resultat.txt");
-    std::string text,ligne;
+    std::ifstream fluxcle("cle.txt");
+    std::string text,ligne,clet;
     //Tout est OK, on peut utiliser le fichier
     while(getline(monFlux2,ligne)){
+        ligne.erase(std::remove_if(ligne.begin(), ligne.end(), ::isspace), ligne.end());
         std::cout << "te = " << ligne << std::endl;
         text+=ligne;
     }
+    while(getline(fluxcle,ligne)){
+        std::cout << ligne << std::endl;
+        clet+=ligne;
+    }
 
     std::ofstream monFlux("resultat.txt");
-    if(monFlux)  //On teste si tout est OK
+    std::ofstream fluxcle2("cle.txt");
+    if(monFlux && fluxcle2)  //On teste si tout est OK
     {
         int choix =0;
         std::cout << "Que voulez vous faire ? (1 : encoder / 2 : decoder )" << std::endl;
@@ -26,7 +33,7 @@ int main(){
                 code.encode();
                 monFlux << code.cipher() << std::endl;
                 for(std::string cle:code.GetListeCle()){
-                    monFlux << "cle = " << cle << std::endl;
+                    fluxcle2 << "cle = " << cle << std::endl;
                 }
                 break;
             case 2:
